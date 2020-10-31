@@ -31,7 +31,6 @@ function frmModal_click(e) {
     }
     else if (e.target.classList.contains('modal-cancel')) {
         frmModal_close();
-        alert('Has cancelado los datos');
     }
     else if (e.target.classList.contains('modal-success')) {
         frmModal_read()
@@ -68,22 +67,9 @@ function frmModal_read() {
     const imagen = frmModalAddPet.querySelector('[name=imagen]').value.trim();
     const acerca = frmModalAddPet.querySelector('[name=acerca]').value.trim();
 
-//     //if (validarDatos(nombre, apellido, edad, especialidad, celular, email)) {
-//         alert(`¡Bienvenido ${capitalizeText(nombre)} ${capitalizeText(apellido)} tu registro se realizó con éxito!
-
-// Hemos enviado un correo de confirmación a la dirección de correo ${email}
-
-// Datos de registro:
-// - Nombre: ${capitalizeText(nombre)}
-// - Apellido: ${capitalizeText(apellido)}
-// - Edad: ${raza}
-// - Especialidad: ${capitalizeText(pais)}
-// - Celular: ${celular}
-// - Email: ${email} `)
-//         frmModal_close();
-    //}
-
-    frmModal_AddPet(nombre, apellido, raza, celular, pais, imagen, acerca);
+    if (frmModal_validarDatos(nombre, apellido, raza, celular, pais, imagen, acerca)) {
+        frmModal_AddPet(nombre, apellido, raza, celular, pais, imagen, acerca);
+    }
 }
 
 function frmModal_AddPet(nombre, apellido, raza, celular, pais, imagen, acerca) {
@@ -109,14 +95,55 @@ function frmModal_AddPet(nombre, apellido, raza, celular, pais, imagen, acerca) 
      frmModal_close();
 }
 
+function frmModal_clear() {
+    Array.from(frmModalAddPet.querySelectorAll('input')).forEach(e => {
+        e.value = '';
+    });
+
+    Array.from(frmModalAddPet.querySelectorAll('textarea')).forEach(e => {
+        e.value = '';
+    });
+}
+
+function frmModal_validarDatos(nombre, apellido, raza, celular, pais, imagen, acerca) {
+    let msgError = '';
+    if (!nombre) {
+        msgError += '\n- Olvidó ingresar el Nombre'; 
+    }
+    if (!apellido) {
+        msgError += '\n- Olvidó ingresar el Apellido'; 
+    }
+    if (!raza) {
+        msgError += '\n- Olvidó ingresar la raza'; 
+    }
+    if (!celular || celular.length !== 9 || Number.isNaN(Number.parseInt(celular))) {
+        msgError += '\n- El n° de Celular debe contener 9 dígitos'; 
+    }
+    if (!pais) {
+        msgError += '\n- Olvidó ingresar el País'; 
+    }
+    if (!imagen) {
+        msgError += '\n- Olvidó ingresar la URL de la imagen'; 
+    }
+    if (!acerca) {
+        msgError += '\n- Olvidó ingresar datos acerca de la mascota'; 
+    }
+
+    if (msgError) {
+        alert(`Por favor lea con atención las siguientes observaciones:\n${msgError}`);
+        return false;
+    }
+
+    return true;
+}
+
 function frmModal_close() {
     frmModalAddPet.style.display = "none";
-    //frmModal_clear();
+    frmModal_clear();
 }
 
 function frmModalDelete_close() {
     frmModalDeletePet.style.display = "none";
-    //frmModal_clear();
 }
 //petsContainer.addEventListener('mouseenter', petsContainer_mouseenter);
 
