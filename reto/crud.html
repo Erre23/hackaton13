@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Hackaton 13 - Por Eduardo Rodriguez</h2>
+        <nav>
+            <ul>
+                <li><a href="../reto/preguntas.html">Reto 1: Preguntas</a></li>
+                <li><a href="../reto/crud.html">Reto 2 y 3: Crud - Maquetado y Javascript</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="petsContainer" class="container">
+            <div class="container-header">
+                <h2 class='container-title'>Dog Crud</h2>
+                <button id="btnAddPet" class='btn'>Agregar mascota</button>
+            </div>
+            <div class="container-body">
+                <div class="card">
+                    <button class="card-edit">Edit</button>
+                    <div class="card-content">
+                        <img src="https://images.vexels.com/media/users/3/145908/preview2/52eabf633ca6414e60a7677b0b917d92-creador-de-avatar-masculino.jpg" class="card-image"></img>
+                        <p>Nombre</p>
+                        <p>Telefono | Correo</p>
+                        <p>Pais</p>
+                        <p>About me about me about me about me about me about me about me about me about me about me about me</p>
+                    </div>
+                    <button class="card-delete">Delete</button>
+                </div>
+                <div class="card">
+    
+                </div>
+            </div>
+        </div>
+        <div id="frmModalAddPet" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-close">&times;</span>
+                    <h2>Ingrese los siguientes datos</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="frm-col-w50">
+                            <input name="nombre" class="frm-control" type="text" placeholder="Nombre" >
+                        </div>
+                    
+                        <div class="frm-col-w50">
+                            <input name="apellido" class="frm-control" type="text" placeholder="Apellido" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="frm-col-w50">
+                            <input name="raza" class="frm-control" type="text" placeholder="Raza" >
+                        </div>
+                        <div class="frm-col-w50">
+                            <input name="celular" class="frm-control" min=0 max=999999999 type="number"placeholder="Celular" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="frm-col-w50">
+                            <select name="pais" class="frm-control" placeholder="País" >
+                                <option value="">-Pais-</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Bolivia">Bolivia</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Ecuador">Ecuador</option>
+                                <option value="Paraguay">Paraguay</option>
+                                <option value="Perú">Perú</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Venezuela">Venezuela</option>
+                            </select>
+                        </div>
+                        <div class="frm-col-w50">
+                            <input name="url" class="frm-control" type="text" placeholder="URL de la imagen" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="frm-col-w100">
+                            <textarea name="acerca" class="frm-control" rows="8" placeholder="Sobre él/ella"  ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn btn-secondary modal-cancel">Cancel</div>
+                    <div class="btn modal-success">Aceptar</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
