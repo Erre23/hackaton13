@@ -18,4 +18,11 @@
     &-secondary:hover {
         color: grey;
     }
+    &-alert{
+        background: red;
+        border: 2px solid red;
+    }
+    &-alert:hover {
+        color: red;
+    }
 }

@@ -89,6 +89,7 @@ li > a:hover {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -96,9 +97,9 @@ li > a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .card-image {
@@ -109,6 +110,7 @@ li > a:hover {
 }
 
 .card-edit {
+  display: none;
   position: absolute;
   top: 5px;
   left: 5px;
@@ -118,6 +120,7 @@ li > a:hover {
 }
 
 .card-delete {
+  display: none;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -197,6 +200,15 @@ li > a:hover {
 
 .btn-secondary:hover {
   color: grey;
+}
+
+.btn-alert {
+  background: red;
+  border: 2px solid red;
+}
+
+.btn-alert:hover {
+  color: red;
 }
 
 .form-row {
@@ -324,6 +336,10 @@ li > a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.modal-header-alert {
+  background: red;
 }
 
 .modal-body {
